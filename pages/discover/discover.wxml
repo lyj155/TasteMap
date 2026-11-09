@@ -1,0 +1,67 @@
+<!--pages/discover/discover.wxml 发现列表-->
+<view class="page">
+  <!-- 自定义头部：标题 + 校园附近定位 -->
+  <view class="header">
+    <view class="header-title">发现</view>
+    <view class="header-loc">
+      <text class="loc-icon">📍</text>
+      <text>校园附近</text>
+    </view>
+  </view>
+
+  <!-- 筛选区：横向滚动胶囊按钮 -->
+  <scroll-view class="filters" scroll-x enhanced show-scrollbar="{{false}}">
+    <view
+      class="filter-pill {{activeFilter === index ? 'active' : ''}}"
+      wx:for="{{filters}}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="onFilterTap"
+    >{{item}}</view>
+  </scroll-view>
+
+  <!-- 内容区：双列瀑布流 -->
+  <view class="waterfall">
+    <view class="column">
+      <view class="post-card" wx:for="{{leftColumn}}" wx:for-item="post" wx:key="id" bindtap="onPostTap" data-id="{{post.id}}">
+        <image class="post-cover" src="{{post.cover}}" mode="widthFix" lazy-load="{{true}}" />
+        <view class="post-body">
+          <view class="post-title">{{post.title}}</view>
+          <view class="post-tags">
+            <text class="post-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+          </view>
+          <view class="post-user">
+            <image class="avatar" src="{{post.user.avatar}}" mode="aspectFill" />
+            <text class="nick">{{post.user.nick}}</text>
+          </view>
+          <view class="post-meta">
+            <text class="distance">📍 {{post.distanceText}}</text>
+            <view class="likes">❤ {{post.likes}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="column">
+      <view class="post-card" wx:for="{{rightColumn}}" wx:for-item="post" wx:key="id" bindtap="onPostTap" data-id="{{post.id}}">
+        <image class="post-cover" src="{{post.cover}}" mode="widthFix" lazy-load="{{true}}" />
+        <view class="post-body">
+          <view class="post-title">{{post.title}}</view>
+          <view class="post-tags">
+            <text class="post-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+          </view>
+          <view class="post-user">
+            <image class="avatar" src="{{post.user.avatar}}" mode="aspectFill" />
+            <text class="nick">{{post.user.nick}}</text>
+          </view>
+          <view class="post-meta">
+            <text class="distance">📍 {{post.distanceText}}</text>
+            <view class="likes">❤ {{post.likes}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-end">— 到底啦，去地图上探索更多美味吧 —</view>
+</view>

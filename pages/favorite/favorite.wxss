@@ -1,0 +1,294 @@
+/* pages/favorite/favorite.wxss 收藏 / 大转盘 */
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 40rpx;
+  box-sizing: border-box;
+}
+
+/* ===== 大转盘卡片 ===== */
+.wheel-card {
+  padding: 36rpx 0 40rpx;
+  overflow: hidden;
+}
+
+.wheel-title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+  margin-bottom: 36rpx;
+}
+
+.wheel-wrap {
+  position: relative;
+  width: 380rpx;
+  height: 380rpx;
+  margin: 0 auto;
+}
+
+/* 指针（顶部三角） */
+.wheel-pointer {
+  position: absolute;
+  top: -8rpx;
+  left: 50%;
+  margin-left: -16rpx;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  border-left: 16rpx solid transparent;
+  border-right: 16rpx solid transparent;
+  border-top: 32rpx solid #E8541A;
+}
+
+/* 转盘本体：扇形颜色由 js 下发的 wheelStyle 控制 */
+.wheel {
+  position: relative;
+  width: 380rpx;
+  height: 380rpx;
+  border-radius: 50%;
+  box-shadow: 0 10rpx 30rpx rgba(255, 140, 0, 0.35), inset 0 0 0 8rpx rgba(255, 255, 255, 0.35);
+  transition: transform 3s cubic-bezier(0.15, 0.85, 0.25, 1);
+}
+
+/* 扇形区文字 */
+.wheel-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin: -22rpx 0 0 -60rpx;
+  text-align: center;
+}
+
+.wheel-item-text {
+  display: inline-block;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+/* 中间按钮 */
+.wheel-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 132rpx;
+  height: 132rpx;
+  margin: -66rpx 0 0 -66rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF8C00, #FFB25E);
+  border: 8rpx solid #FFFFFF;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  font-weight: 700;
+  z-index: 6;
+}
+
+.wheel-center.disabled {
+  opacity: 0.7;
+}
+
+/* 结果提示 */
+.wheel-result {
+  margin: 36rpx auto 0;
+  width: fit-content;
+  max-width: 90%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+  padding: 14rpx 32rpx;
+  border-radius: 40rpx;
+  background: #F7F6F2;
+  transition: all 0.3s ease;
+}
+
+.wheel-result.show {
+  color: #FF8C00;
+  font-weight: 600;
+  background: rgba(255, 140, 0, 0.1);
+}
+
+/* ===== 分段器 ===== */
+.segment {
+  display: flex;
+  margin-top: 28rpx;
+  padding: 8rpx;
+}
+
+.segment-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 16rpx;
+  transition: all 0.2s ease;
+}
+
+.segment-item.active {
+  background: rgba(255, 140, 0, 0.12);
+  color: #FF8C00;
+  font-weight: 700;
+}
+
+/* ===== 店铺卡片 ===== */
+.shop-list {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.shop-card {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  gap: 20rpx;
+}
+
+.shop-img {
+  width: 180rpx;
+  height: 140rpx;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+  background: #F0EDE6;
+}
+
+.shop-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.shop-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.shop-tags {
+  margin-top: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-tag {
+  font-size: 20rpx;
+  color: #FF8C00;
+  background: rgba(255, 140, 0, 0.1);
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+}
+
+.shop-meta {
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.shop-price {
+  font-size: 24rpx;
+  color: #FF8C00;
+  font-weight: 600;
+}
+
+.shop-distance,
+.shop-rating {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.shop-like {
+  padding: 10rpx;
+}
+
+.heart {
+  font-size: 44rpx;
+  color: #D8D8D8;
+}
+
+.heart.active {
+  color: #FF8C00;
+}
+
+/* ===== 收藏的帖子 ===== */
+.fav-post-list {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.fav-post {
+  display: flex;
+  padding: 20rpx;
+  gap: 20rpx;
+}
+
+.fav-post-cover {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+  background: #F0EDE6;
+}
+
+.fav-post-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fav-post-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #2B2B2B;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.fav-post-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.fav-post-avatar {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+  background: #F0EDE6;
+}
+
+.fav-post-nick {
+  font-size: 22rpx;
+  color: #666;
+  flex: 1;
+}
+
+.fav-post-likes {
+  font-size: 22rpx;
+  color: #FF5B4A;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #C0BCB2;
+  font-size: 24rpx;
+  margin-top: 60rpx;
+}

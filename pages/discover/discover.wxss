@@ -1,0 +1,165 @@
+/* pages/discover/discover.wxss 发现列表 */
+.page {
+  min-height: 100vh;
+  padding: 0 24rpx 40rpx;
+  box-sizing: border-box;
+}
+
+/* ===== 头部 ===== */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 30rpx 8rpx 6rpx;
+}
+
+.header-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.header-loc {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #FF8C00;
+  background: rgba(255, 140, 0, 0.1);
+  padding: 10rpx 22rpx;
+  border-radius: 32rpx;
+}
+
+.loc-icon {
+  font-size: 22rpx;
+  margin-right: 6rpx;
+}
+
+/* ===== 筛选胶囊 ===== */
+.filters {
+  white-space: nowrap;
+  padding: 24rpx 4rpx 8rpx;
+}
+
+.filter-pill {
+  display: inline-block;
+  padding: 14rpx 36rpx;
+  margin-right: 20rpx;
+  background: #FFFFFF;
+  color: #666;
+  font-size: 26rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, #FF8C00, #FFA945);
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 6rpx 16rpx rgba(255, 140, 0, 0.35);
+}
+
+/* ===== 瀑布流 ===== */
+.waterfall {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.post-card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.post-cover {
+  width: 100%;
+  display: block;
+  background: #F0EDE6;
+}
+
+.post-body {
+  padding: 20rpx 22rpx 22rpx;
+}
+
+.post-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2B2B2B;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.post-tags {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-tag {
+  font-size: 20rpx;
+  color: #FF8C00;
+  background: rgba(255, 140, 0, 0.1);
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 8rpx;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+}
+
+.avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+  background: #F0EDE6;
+}
+
+.nick {
+  font-size: 22rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx;
+}
+
+.distance {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.likes {
+  font-size: 22rpx;
+  color: #FF5B4A;
+  font-weight: 600;
+}
+
+.list-end {
+  text-align: center;
+  color: #C0BCB2;
+  font-size: 22rpx;
+  margin-top: 40rpx;
+}

@@ -1,0 +1,40 @@
+<!--pages/index/index.wxml 首页：校园美食地图-->
+<view class="page">
+  <!-- 全屏地图 -->
+  <map
+    id="campusMap"
+    class="map"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    scale="16"
+    markers="{{markers}}"
+    show-location="{{true}}"
+    bindmarkertap="onMarkerTap"
+    bindregionchange="onRegionChange"
+  >
+  </map>
+
+  <!-- 顶部悬浮：搜索框 + 探索完整地图开关 -->
+  <view class="top-bar">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索店名 / 美食，如：牛肉面"
+        placeholder-class="search-placeholder"
+        value="{{keyword}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <view class="search-btn" bindtap="onSearchConfirm">搜索</view>
+    </view>
+    <view class="switch-row">
+      <text class="switch-label">探索完整地图</text>
+      <switch checked="{{exploreAll}}" color="#FF8C00" bindchange="onExploreChange" />
+    </view>
+  </view>
+
+  <!-- 底部悬浮文字提示 -->
+  <view class="bottom-tip">灰色餐饮店暂无真实评价</view>
+</view>

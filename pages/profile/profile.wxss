@@ -1,0 +1,212 @@
+/* pages/profile/profile.wxss 我的 */
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 40rpx;
+  box-sizing: border-box;
+}
+
+/* ===== 用户卡片 ===== */
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 34rpx 30rpx;
+  gap: 24rpx;
+  background: linear-gradient(135deg, #FFFFFF 55%, #FFF4E5 100%);
+}
+
+.avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  border: 4rpx solid #FFD9A8;
+  flex-shrink: 0;
+  background: #F0EDE6;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nick {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.sign {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.edit-btn {
+  padding: 12rpx 26rpx;
+  font-size: 24rpx;
+  color: #FF8C00;
+  border: 2rpx solid #FF8C00;
+  border-radius: 40rpx;
+}
+
+/* ===== 数据栏 ===== */
+.stats {
+  margin-top: 24rpx;
+  display: flex;
+  padding: 30rpx 0;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #FF8C00;
+}
+
+.stat-label {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* ===== 功能网格 ===== */
+.grid {
+  margin-top: 24rpx;
+  display: flex;
+  padding: 34rpx 10rpx;
+}
+
+.grid-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+}
+
+.grid-name {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #555;
+}
+
+/* ===== 最近足迹 ===== */
+.footprint {
+  margin-top: 24rpx;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.section-sub {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 横向打卡地图截图（CSS 模拟） */
+.footprint-map {
+  position: relative;
+  margin-top: 24rpx;
+  height: 260rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background: linear-gradient(135deg, #EAF3E6 0%, #E4F0F5 100%);
+}
+
+.map-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.v-line {
+  top: 0;
+  bottom: 0;
+  width: 6rpx;
+}
+
+.h-line {
+  left: 0;
+  right: 0;
+  height: 6rpx;
+}
+
+.map-road {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 55%;
+  height: 26rpx;
+  background: #FFFFFF;
+  border-top: 2rpx dashed #CFCFCF;
+  border-bottom: 2rpx dashed #CFCFCF;
+  transform: rotate(-6deg);
+}
+
+.map-pin {
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: #FF8C00;
+  border: 6rpx solid #FFFFFF;
+  box-shadow: 0 4rpx 10rpx rgba(255, 140, 0, 0.5);
+}
+
+.map-me {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  padding: 8rpx 20rpx;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 30rpx;
+}
+
+/* 足迹文字列表 */
+.footprint-text {
+  display: flex;
+  align-items: center;
+  margin-top: 22rpx;
+  font-size: 24rpx;
+}
+
+.fp-dot {
+  font-size: 18rpx;
+  color: #FF8C00;
+  margin-right: 14rpx;
+}
+
+.fp-place {
+  flex: 1;
+  color: #444;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fp-time {
+  color: #AAA;
+  font-size: 22rpx;
+  margin-left: 16rpx;
+}

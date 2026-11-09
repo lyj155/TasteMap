@@ -1,0 +1,57 @@
+<!--pages/profile/profile.wxml 我的-->
+<view class="page">
+  <!-- 顶部用户卡片 -->
+  <view class="user-card card">
+    <image class="avatar" src="{{user.avatar}}" mode="aspectFill" />
+    <view class="user-info">
+      <view class="nick">{{user.nick}}</view>
+      <view class="sign">{{user.sign}}</view>
+    </view>
+    <view class="edit-btn">编辑资料</view>
+  </view>
+
+  <!-- 数据栏：三列 -->
+  <view class="stats card">
+    <view class="stat" wx:for="{{stats}}" wx:key="label">
+      <view class="stat-num">{{item.num}}</view>
+      <view class="stat-label">{{item.label}}</view>
+    </view>
+  </view>
+
+  <!-- 功能网格：四个入口 -->
+  <view class="grid card">
+    <view
+      class="grid-item"
+      wx:for="{{menus}}"
+      wx:key="name"
+      data-name="{{item.name}}"
+      bindtap="onMenuTap"
+    >
+      <view class="grid-icon" style="background: {{item.bg}};">{{item.icon}}</view>
+      <view class="grid-name">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- 最近足迹 -->
+  <view class="footprint card">
+    <view class="section-title">最近足迹</view>
+    <view class="section-sub">过去 7 天你在校园周边留下了这些味道</view>
+    <!-- 横向打卡地图截图（CSS 模拟） -->
+    <view class="footprint-map">
+      <view class="map-line v-line" style="left: 30%;"></view>
+      <view class="map-line v-line" style="left: 62%;"></view>
+      <view class="map-line h-line" style="top: 38%;"></view>
+      <view class="map-line h-line" style="top: 72%;"></view>
+      <view class="map-road"></view>
+      <view class="map-pin" wx:for="{{pins}}" wx:for-item="pin" wx:key="index"
+        style="left: {{pin.x}}%; top: {{pin.y}}%;"></view>
+      <view class="map-me">我在这里</view>
+    </view>
+    <!-- 足迹文字 -->
+    <view class="footprint-text" wx:for="{{footprints}}" wx:key="id">
+      <text class="fp-dot">●</text>
+      <text class="fp-place">{{item.place}}</text>
+      <text class="fp-time">{{item.time}}</text>
+    </view>
+  </view>
+</view>

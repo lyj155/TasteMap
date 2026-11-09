@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/discover/discover",
+    "pages/favorite/favorite",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF8C00",
+    "navigationBarTitleText": "TasteMap美食地图",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F7F6F2",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#9A9A9A",
+    "selectedColor": "#FF8C00",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/favorite/favorite",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于在地图上展示你与美食店铺的距离"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,83 @@
+<!--pages/favorite/favorite.wxml 收藏 / 今天吃什么大转盘-->
+<view class="page">
+  <!-- 顶部卡片：大转盘 -->
+  <view class="wheel-card card">
+    <view class="wheel-title">今天吃什么？</view>
+    <view class="wheel-wrap">
+      <!-- 指针 -->
+      <view class="wheel-pointer"></view>
+      <!-- 转盘：conic-gradient 分扇形，transform 旋转 -->
+      <view
+        class="wheel"
+        style="{{wheelStyle}} transform: rotate({{wheelAngle}}deg);"
+      >
+        <view
+          class="wheel-item"
+          wx:for="{{wheelOptions}}"
+          wx:for-item="opt"
+          wx:key="index"
+          style="transform: rotate({{opt.angle}}deg) translateY(-118rpx);"
+        >
+          <text class="wheel-item-text" style="transform: rotate(-{{opt.angle}}deg);">{{opt.name}}</text>
+        </view>
+        <!-- 中间按钮 -->
+        <view class="wheel-center {{spinning ? 'disabled' : ''}}" bindtap="spinWheel">
+          <text>转一下</text>
+        </view>
+      </view>
+    </view>
+    <view class="wheel-result {{result ? 'show' : ''}}">
+      {{result ? '🎯 今天就去吃：' + result : '点击「转一下」，让命运决定晚饭'}}
+    </view>
+  </view>
+
+  <!-- 分段器：店铺 / 帖子 -->
+  <view class="segment card">
+    <view
+      class="segment-item {{activeTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >{{item}}</view>
+  </view>
+
+  <!-- 店铺列表 -->
+  <view class="shop-list" wx:if="{{activeTab === 0}}">
+    <view class="shop-card card" wx:for="{{shopList}}" wx:for-item="shop" wx:key="id">
+      <image class="shop-img" src="{{shop.cover}}" mode="aspectFill" lazy-load="{{true}}" />
+      <view class="shop-info">
+        <view class="shop-name">{{shop.name}}</view>
+        <view class="shop-tags">
+          <text class="shop-tag" wx:for="{{shop.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+        <view class="shop-meta">
+          <text class="shop-price">人均 ¥{{shop.avgPrice}}</text>
+          <text class="shop-distance">📍 {{shop.distanceText}}</text>
+          <text class="shop-rating">⭐ {{shop.rating}}</text>
+        </view>
+      </view>
+      <view class="shop-like" data-id="{{shop.id}}" catchtap="onUnlikeShop">
+        <text class="heart active">♥</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="fav-post-list" wx:if="{{activeTab === 1}}">
+    <view class="fav-post card" wx:for="{{postList}}" wx:for-item="post" wx:key="id">
+      <image class="fav-post-cover" src="{{post.cover}}" mode="aspectFill" lazy-load="{{true}}" />
+      <view class="fav-post-info">
+        <view class="fav-post-title">{{post.title}}</view>
+        <view class="fav-post-meta">
+          <image class="fav-post-avatar" src="{{post.user.avatar}}" mode="aspectFill" />
+          <text class="fav-post-nick">{{post.user.nick}}</text>
+          <text class="fav-post-likes">❤ {{post.likes}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-tip" wx:if="{{activeTab === 0 && shopList.length === 0}}">还没有收藏店铺，去发现页逛逛吧</view>
+  <view class="empty-tip" wx:if="{{activeTab === 1 && postList.length === 0}}">还没有收藏帖子哦~</view>
+</view>
