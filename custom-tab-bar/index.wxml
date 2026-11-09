@@ -1,0 +1,27 @@
+<!--custom-tab-bar/index.wxml 自定义底部导航-->
+<view class="tab-bar">
+  <block wx:for="{{list}}" wx:key="path">
+    <!-- 中间"+"按钮 -->
+    <view class="tab-item" wx:if="{{item.center}}">
+      <view class="publish-btn" catchtap="onPublish">
+        <text class="publish-plus">＋</text>
+      </view>
+    </view>
+
+    <!-- 普通 Tab：图标 + 文字 -->
+    <view
+      class="tab-item"
+      wx:else
+      data-path="{{item.path}}"
+      data-idx="{{item.idx}}"
+      bindtap="onTabTap"
+    >
+      <image
+        class="tab-icon"
+        src="{{selected === item.idx ? item.iconActive : item.icon}}"
+        mode="aspectFit"
+      />
+      <text class="tab-text {{selected === item.idx ? 'active' : ''}}">{{item.text}}</text>
+    </view>
+  </block>
+</view>

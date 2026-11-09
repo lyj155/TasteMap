@@ -1,0 +1,57 @@
+<!--pages/publish/publish.wxml 发布页：中间"+"按钮的跳转目标-->
+<view class="page">
+  <!-- 类型选择 -->
+  <view class="type-seg card">
+    <view class="seg-item {{type === 0 ? 'active' : ''}}" data-index="0" bindtap="onTypeChange">发评价</view>
+    <view class="seg-item {{type === 1 ? 'active' : ''}}" data-index="1" bindtap="onTypeChange">发帖子</view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form card">
+    <view class="form-label">标题</view>
+    <input
+      class="form-input"
+      placeholder="一句话描述这次美食体验"
+      placeholder-class="input-placeholder"
+      value="{{title}}"
+      bindinput="onTitleInput"
+    />
+
+    <view class="form-label">正文</view>
+    <textarea
+      class="form-textarea"
+      placeholder="说说味道、环境、价格…真实体验才更有价值哦"
+      placeholder-class="input-placeholder"
+      value="{{content}}"
+      maxlength="300"
+      bindinput="onContentInput"
+    />
+    <view class="word-count">{{content.length}}/300</view>
+
+    <view class="form-label">添加图片</view>
+    <view class="img-grid">
+      <image
+        class="img-item"
+        wx:for="{{images}}"
+        wx:key="*this"
+        src="{{item}}"
+        mode="aspectFill"
+        data-index="{{index}}"
+        bindtap="onPreviewImage"
+      />
+      <view class="img-add" wx:if="{{images.length < 3}}" bindtap="onChooseImage">＋</view>
+    </view>
+
+    <view class="form-label">关联店铺</view>
+    <picker range="{{shopNames}}" bindchange="onShopPick">
+      <view class="shop-pick {{shopIndex >= 0 ? 'picked' : ''}}">
+        <text>{{shopIndex >= 0 ? shopNames[shopIndex] : '选择一家店铺（可选）'}}</text>
+        <text class="arrow">›</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 提交 -->
+  <view class="submit-btn" bindtap="onSubmit">发布</view>
+  <view class="tip">提交后需通过真实体验确认，才会展示给同学们~</view>
+</view>

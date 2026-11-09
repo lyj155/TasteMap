@@ -31,6 +31,13 @@ Page({
     ]
   },
 
+  // 同步自定义 tabBar 选中态
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 3 });
+    }
+  },
+
   // 功能入口（Mock：预留跳转）
   onMenuTap(e) {
     const name = e.currentTarget.dataset.name;

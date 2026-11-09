@@ -14,6 +14,13 @@ Page({
     this.renderMarkers();
   },
 
+  // 同步自定义 tabBar 选中态
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 0 });
+    }
+  },
+
   // 生成地图 markers：橙色=有真实评价，灰色=无评价
   renderMarkers() {
     const { exploreAll } = this.data;

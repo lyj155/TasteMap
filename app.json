@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/discover/discover",
     "pages/favorite/favorite",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/publish/publish"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FF8C00",
@@ -13,6 +14,7 @@
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
+    "custom": true,
     "color": "#9A9A9A",
     "selectedColor": "#FF8C00",
     "backgroundColor": "#ffffff",

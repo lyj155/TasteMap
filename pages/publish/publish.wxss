@@ -1,0 +1,144 @@
+/* pages/publish/publish.wxss 发布页 */
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 60rpx;
+  box-sizing: border-box;
+}
+
+/* 类型分段 */
+.type-seg {
+  display: flex;
+  padding: 8rpx;
+}
+
+.seg-item {
+  flex: 1;
+  text-align: center;
+  padding: 18rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 16rpx;
+  transition: all 0.2s ease;
+}
+
+.seg-item.active {
+  background: rgba(255, 140, 0, 0.12);
+  color: #FF8C00;
+  font-weight: 700;
+}
+
+/* 表单 */
+.form {
+  margin-top: 24rpx;
+  padding: 34rpx 30rpx;
+}
+
+.form-label {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #555;
+  margin: 28rpx 0 16rpx;
+}
+
+.form-label:first-child {
+  margin-top: 0;
+}
+
+.form-input {
+  height: 84rpx;
+  padding: 0 24rpx;
+  background: #F7F6F2;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 240rpx;
+  padding: 20rpx 24rpx;
+  background: #F7F6F2;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.input-placeholder {
+  color: #B5B5B5;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 22rpx;
+  color: #B5B5B5;
+  margin-top: 8rpx;
+}
+
+/* 图片选择 */
+.img-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.img-item {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+}
+
+.img-add {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  background: #F7F6F2;
+  border: 2rpx dashed #D8D4CA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  color: #C0BCB2;
+  box-sizing: border-box;
+}
+
+/* 关联店铺 */
+.shop-pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84rpx;
+  padding: 0 24rpx;
+  background: #F7F6F2;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #B5B5B5;
+}
+
+.shop-pick.picked {
+  color: #2B2B2B;
+}
+
+.arrow {
+  font-size: 36rpx;
+  color: #C0BCB2;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  margin-top: 44rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: center;
+  background: linear-gradient(135deg, #FF8C00, #FFA945);
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 700;
+  border-radius: 46rpx;
+  box-shadow: 0 8rpx 24rpx rgba(255, 140, 0, 0.35);
+}
+
+.tip {
+  margin-top: 24rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #C0BCB2;
+}

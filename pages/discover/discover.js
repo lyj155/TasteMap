@@ -18,6 +18,13 @@ Page({
     this.applyFilter(0);
   },
 
+  // 同步自定义 tabBar 选中态
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 1 });
+    }
+  },
+
   // 切换筛选标签
   onFilterTap(e) {
     const index = Number(e.currentTarget.dataset.index);

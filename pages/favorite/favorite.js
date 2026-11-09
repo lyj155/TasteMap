@@ -23,6 +23,13 @@ Page({
     postList: favoritePosts
   },
 
+  // 同步自定义 tabBar 选中态
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 2 });
+    }
+  },
+
   onLoad() {
     // 用 conic-gradient 画 6 个交替色扇形（默认 0deg 从顶部开始，指针在顶部对准扇形中心，故 from -30deg）
     const colors = ['#FF8C00', '#FFB25E'];
