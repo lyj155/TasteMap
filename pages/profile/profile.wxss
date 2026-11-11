@@ -23,6 +23,33 @@
   background: #F0EDE6;
 }
 
+/* 未登录时的灰色默认头像（类似微信未上传头像） */
+.avatar-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E3E3E3;
+  border-color: #D0D0D0;
+}
+
+.avatar-default-icon {
+  font-size: 64rpx;
+  color: #AAB0BC;
+}
+
+/* 去登录按钮（尺寸与“编辑资料”一致） */
+.login-btn {
+  margin: 0;
+  padding: 12rpx 26rpx;
+  height: auto;
+  line-height: 1.4;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #FF8C00, #FFA945);
+  border-radius: 40rpx;
+  box-shadow: 0 6rpx 16rpx rgba(255, 140, 0, 0.3);
+}
+
 .user-info {
   flex: 1;
   min-width: 0;
@@ -209,4 +236,121 @@
   color: #AAA;
   font-size: 22rpx;
   margin-left: 16rpx;
+}
+
+/* ===== 登录 / 编辑资料弹窗 ===== */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-modal {
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 44rpx 40rpx 36rpx;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.modal-sub {
+  margin-top: 8rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 头像选择按钮（重置 button 默认样式） */
+.avatar-choose {
+  margin: 36rpx auto 0;
+  padding: 0;
+  width: fit-content;
+  background: transparent;
+  border: none;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-choose::after {
+  border: none;
+}
+
+.modal-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: #E3E3E3;
+}
+
+.modal-avatar-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-avatar-default .avatar-default-icon {
+  font-size: 76rpx;
+  color: #AAB0BC;
+}
+
+.avatar-tip {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 22rpx;
+  color: #FF8C00;
+}
+
+.modal-input {
+  margin-top: 24rpx;
+  height: 84rpx;
+  padding: 0 24rpx;
+  background: #F7F6F2;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}
+
+.input-placeholder {
+  color: #B5B5B5;
+}
+
+.modal-btns {
+  margin-top: 36rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 42rpx;
+}
+
+.modal-btn.cancel {
+  background: #F0EDE6;
+  color: #666;
+}
+
+.modal-btn.confirm {
+  background: linear-gradient(135deg, #FF8C00, #FFA945);
+  color: #FFFFFF;
+  font-weight: 600;
 }

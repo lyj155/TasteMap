@@ -1,5 +1,5 @@
 // pages/discover/discover.js 发现列表
-const { posts } = require('../../utils/data.js');
+const { fetchPosts } = require('../../utils/post.js');
 
 // 简易地理距离：由文本距离换算数值，用于“附近”筛选
 function parseDistance(text) {
@@ -10,19 +10,28 @@ Page({
   data: {
     filters: ['附近', '一人食', '有插座', '平价'],
     activeFilter: 0,
+    allPosts: [], // 当前全部帖子（含刚发布的）
     leftColumn: [],
     rightColumn: []
   },
 
   onLoad() {
-    this.applyFilter(0);
+    this.loadPosts();
   },
 
-  // 同步自定义 tabBar 选中态
+  // 同步自定义 tabBar 选中态；每次进入刷新列表（发帖后新帖可见）
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({ selected: 1 });
     }
+    this.loadPosts();
+  },
+
+  // 从接口拉取帖子（Mock 内存 + 示例数据；云开发后为数据库查询）
+  async loadPosts() {
+    const list = await fetchPosts();
+    this.setData({ allPosts: list });
+    this.applyFilter(this.data.activeFilter);
   },
 
   // 切换筛选标签
@@ -33,6 +42,7 @@ Page({
 
   applyFilter(index) {
     const filterName = this.data.filters[index];
+    const posts = this.data.allPosts;
     let list = posts;
 
     if (filterName === '附近') {
@@ -54,7 +64,7 @@ Page({
   // 进入帖子详情（Mock：弹提示，后续接入详情页）
   onPostTap(e) {
     const id = e.currentTarget.dataset.id;
-    const post = posts.find((p) => p.id === id);
+    const post = this.data.allPosts.find((p) => p.id === id);
     if (post) {
       wx.showToast({ title: `「${post.shopName}」详情开发中`, icon: 'none' });
     }

@@ -46,7 +46,8 @@
     }
   },
   "requiredPrivateInfos": [
-    "getLocation"
+    "getLocation",
+    "chooseLocation"
   ],
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

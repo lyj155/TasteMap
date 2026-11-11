@@ -11,6 +11,61 @@
   padding: 8rpx;
 }
 
+/* 定位状态条 */
+.loc-status {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 24rpx;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+  margin-bottom: 28rpx;
+}
+
+.loc-status.ok {
+  background: rgba(82, 196, 26, 0.1);
+  color: #4C9E2A;
+}
+
+.loc-status.bad {
+  background: rgba(255, 91, 74, 0.1);
+  color: #E8541A;
+}
+
+.loc-fail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.loc-retry {
+  color: #E8541A;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.required {
+  font-size: 20rpx;
+  color: #FFFFFF;
+  background: #FF5B4A;
+  border-radius: 8rpx;
+  padding: 2rpx 12rpx;
+  margin-left: 8rpx;
+}
+
+/* 店铺定位行的操作区（去修改 + 箭头） */
+.loc-actions {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.loc-edit {
+  font-size: 24rpx;
+  color: #FF8C00;
+  font-weight: 600;
+}
+
 .seg-item {
   flex: 1;
   text-align: center;
@@ -113,8 +168,9 @@
   color: #B5B5B5;
 }
 
+/* 已获取当前位置：绿色显示 */
 .shop-pick.picked {
-  color: #2B2B2B;
+  color: #4C9E2A;
 }
 
 .arrow {

@@ -36,5 +36,17 @@
   </view>
 
   <!-- 底部悬浮文字提示 -->
-  <view class="bottom-tip">灰色餐饮店暂无真实评价</view>
+  <view class="bottom-tip">灰色店铺暂无真实体验帖 · 打开右上开关探索全部</view>
+
+  <!-- 定位授权遮罩：授权成功前地图处于模糊状态 -->
+  <view class="location-mask" wx:if="{{!located}}">
+    <view class="location-card card">
+      <text class="location-icon">📍</text>
+      <view class="location-title">{{locating ? '正在定位…' : '开启定位'}}</view>
+      <view class="location-desc">
+        {{locating ? '正在寻找你附近的美食' : '开启定位后，为你展示校园附近真实美食'}}
+      </view>
+      <view class="location-btn" wx:if="{{!locating}}" bindtap="onRetryLocation">去授权定位</view>
+    </view>
+  </view>
 </view>

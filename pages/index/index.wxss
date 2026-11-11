@@ -88,3 +88,57 @@
   white-space: nowrap;
   box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.2);
 }
+
+/* ===== 定位授权遮罩（模糊背景） ===== */
+.location-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 246, 242, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.location-card {
+  width: 520rpx;
+  padding: 56rpx 40rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-icon {
+  font-size: 72rpx;
+}
+
+.location-title {
+  margin-top: 20rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.location-desc {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.location-btn {
+  margin-top: 40rpx;
+  padding: 20rpx 80rpx;
+  background: linear-gradient(135deg, #FF8C00, #FFA945);
+  color: #FFFFFF;
+  font-size: 28rpx;
+  font-weight: 600;
+  border-radius: 44rpx;
+  box-shadow: 0 8rpx 20rpx rgba(255, 140, 0, 0.35);
+}

@@ -42,13 +42,15 @@
       <view class="img-add" wx:if="{{images.length < 3}}" bindtap="onChooseImage">＋</view>
     </view>
 
-    <view class="form-label">关联店铺</view>
-    <picker range="{{shopNames}}" bindchange="onShopPick">
-      <view class="shop-pick {{shopIndex >= 0 ? 'picked' : ''}}">
-        <text>{{shopIndex >= 0 ? shopNames[shopIndex] : '选择一家店铺（可选）'}}</text>
+    <view class="form-label">店铺定位 <text class="required">必选</text></view>
+    <view class="shop-pick {{location ? 'picked' : ''}}" bindtap="onRelocate">
+      <text>{{locating ? '正在获取定位…' : (location ? locationText : '定位失败，请授权后重试')}}</text>
+      <view class="loc-actions">
+        <text class="loc-edit" wx:if="{{location}}" catchtap="onRelocate">去修改</text>
+        <text class="loc-edit" wx:elif="{{!locating}}" catchtap="onOpenLocationSetting">去授权</text>
         <text class="arrow">›</text>
       </view>
-    </picker>
+    </view>
   </view>
 
   <!-- 提交 -->

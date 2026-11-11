@@ -2,12 +2,17 @@
 <view class="page">
   <!-- 顶部用户卡片 -->
   <view class="user-card card">
-    <image class="avatar" src="{{user.avatar}}" mode="aspectFill" />
+    <!-- 已登录且上传过头像：显示头像；否则显示灰色默认头像 -->
+    <image wx:if="{{user.avatar}}" class="avatar" src="{{user.avatar}}" mode="aspectFill" />
+    <view wx:else class="avatar avatar-default">
+      <text class="avatar-default-icon">👤</text>
+    </view>
     <view class="user-info">
       <view class="nick">{{user.nick}}</view>
       <view class="sign">{{user.sign}}</view>
     </view>
-    <view class="edit-btn">编辑资料</view>
+    <button wx:if="{{!isLogged}}" class="login-btn" bindtap="onGoLogin">去登录</button>
+    <view wx:else class="edit-btn" bindtap="onEditProfile">编辑资料</view>
   </view>
 
   <!-- 数据栏：三列 -->
@@ -52,6 +57,50 @@
       <text class="fp-dot">●</text>
       <text class="fp-place">{{item.place}}</text>
       <text class="fp-time">{{item.time}}</text>
+    </view>
+  </view>
+
+  <!-- 登录 / 编辑资料弹窗 -->
+  <view class="mask" wx:if="{{showEdit}}" bindtap="onCloseEdit">
+    <view class="edit-modal" catchtap="preventTap">
+      <view class="modal-title">{{isLogged ? '编辑资料' : '完善个人信息'}}</view>
+      <view class="modal-sub">{{isLogged ? '修改你的头像、昵称和签名' : '登录后将使用微信头像和昵称'}}</view>
+
+      <!-- 微信官方头像填写能力：open-type=chooseAvatar -->
+      <button
+        class="avatar-choose"
+        open-type="chooseAvatar"
+        bindchooseavatar="onChooseAvatar"
+      >
+        <image wx:if="{{draft.avatar}}" class="modal-avatar" src="{{draft.avatar}}" mode="aspectFill" />
+        <view wx:else class="modal-avatar modal-avatar-default">
+          <text class="avatar-default-icon">👤</text>
+        </view>
+        <text class="avatar-tip">{{draft.avatar ? '点击更换头像' : '点击获取微信头像'}}</text>
+      </button>
+
+      <!-- 微信官方昵称填写能力：type=nickname 键盘会推荐微信昵称 -->
+      <input
+        class="modal-input"
+        type="nickname"
+        placeholder="昵称"
+        placeholder-class="input-placeholder"
+        value="{{draft.nick}}"
+        bindinput="onNickInput"
+        bindblur="onNickBlur"
+      />
+      <input
+        class="modal-input"
+        placeholder="个性签名（选填）"
+        placeholder-class="input-placeholder"
+        value="{{draft.sign}}"
+        bindinput="onSignInput"
+      />
+
+      <view class="modal-btns">
+        <view class="modal-btn cancel" bindtap="onCloseEdit">取消</view>
+        <view class="modal-btn confirm" bindtap="onSaveProfile">保存</view>
+      </view>
     </view>
   </view>
 </view>

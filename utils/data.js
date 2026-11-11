@@ -9,7 +9,7 @@ const CAMPUS_CENTER = {
   longitude: 113.3963
 };
 
-// 店铺数据（hasReview: true = 橙色marker，false = 灰色marker）
+// 店铺数据（橙色/灰色由“是否有带定位的帖子”动态计算，见 pages/index/index.js）
 const shops = [
   { id: 1, name: '老陈家牛肉面', category: '面馆', tags: ['一人食', '平价'], avgPrice: 15, distanceText: '150m', rating: 4.8, hasReview: true, latitude: 23.0501, longitude: 113.3975, cover: 'https://picsum.photos/seed/shop1/640/400' },
   { id: 2, name: '巷口麻辣烫', category: '小吃', tags: ['平价'], avgPrice: 18, distanceText: '230m', rating: 4.5, hasReview: true, latitude: 23.0482, longitude: 113.3988, cover: 'https://picsum.photos/seed/shop2/640/400' },
@@ -25,6 +25,7 @@ const shops = [
 const posts = [
   {
     id: 1,
+    located: true, // 是否带店铺定位（true = 该店铺在地图显示橙色图标）
     title: '晚课后这一碗牛肉面，热乎又满足',
     cover: 'https://picsum.photos/seed/post1/640/760',
     user: { nick: '林同学', avatar: 'https://picsum.photos/seed/lin/80/80' },
@@ -35,6 +36,7 @@ const posts = [
   },
   {
     id: 2,
+    located: false,
     title: '三块钱的糖水，是青春的味道',
     cover: 'https://picsum.photos/seed/post2/640/520',
     user: { nick: '阿茶不吃香菜', avatar: 'https://picsum.photos/seed/tea/80/80' },
@@ -45,6 +47,7 @@ const posts = [
   },
   {
     id: 3,
+    located: true,
     title: '自习搭子的新据点：有插座还有窗户位',
     cover: 'https://picsum.photos/seed/post3/640/620',
     user: { nick: '早八战神', avatar: 'https://picsum.photos/seed/bagua/80/80' },
@@ -55,6 +58,7 @@ const posts = [
   },
   {
     id: 4,
+    located: true,
     title: '麻辣烫自由！称重小技巧快码住',
     cover: 'https://picsum.photos/seed/post4/640/540',
     user: { nick: '碳水脑袋', avatar: 'https://picsum.photos/seed/tanshui/80/80' },
@@ -65,6 +69,7 @@ const posts = [
   },
   {
     id: 5,
+    located: false,
     title: '深夜十二点的粥铺，治愈赶论文的胃',
     cover: 'https://picsum.photos/seed/post5/640/700',
     user: { nick: '秃头小学期', avatar: 'https://picsum.photos/seed/tutou/80/80' },
@@ -75,6 +80,7 @@ const posts = [
   },
   {
     id: 6,
+    located: false,
     title: '烤馒头片一元一串，是烧烤摊的隐藏王牌',
     cover: 'https://picsum.photos/seed/post6/640/580',
     user: { nick: '夜宵委员', avatar: 'https://picsum.photos/seed/yexiao/80/80' },
@@ -85,6 +91,7 @@ const posts = [
   },
   {
     id: 7,
+    located: false,
     title: '黄焖鸡加土豆才是灵魂搭配，不接受反驳',
     cover: 'https://picsum.photos/seed/post7/640/660',
     user: { nick: '土豆狂魔', avatar: 'https://picsum.photos/seed/potato/80/80' },
@@ -95,6 +102,7 @@ const posts = [
   },
   {
     id: 8,
+    located: true,
     title: '食堂三楼的阿姨手不抖，亲测有效',
     cover: 'https://picsum.photos/seed/post8/640/500',
     user: { nick: '干饭第一名', avatar: 'https://picsum.photos/seed/ganfan/80/80' },
